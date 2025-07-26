@@ -6,13 +6,14 @@ MsgBox("This script is running on AutoHotkey v2.")
 ; ############ Key Remap ############
 ; RShift::CapsLock                                                           ; Regedit
 ; CapsLock::Ctrl                                                             ; Regedit
-$^g:: SendInput("{Esc}{Esc}")                                                ; Escape
 
 #HotIf WinActive("ahk_exe emacs.exe")
 $^g:: SendInput("^g")                                                        ; C-g
 $^w:: SendInput("^{Backspace}")                                              ; C-Backspace
 $^+w:: SendInput("^w")                                                       ; C-w
 #HotIf ; only in emacs.exe
+
+$^g:: SendInput("{Esc}{Esc}")                                                ; Escape
 
 #HotIf WinActive("ahk_exe obsidian.exe")
 $^+!1:: MsgBox("This shortcut works only in obsidian.exe.")
