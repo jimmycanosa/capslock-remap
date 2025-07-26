@@ -10,7 +10,8 @@ $^g:: SendInput("{Esc}{Esc}")                                                ; E
 
 #HotIf WinActive("ahk_exe emacs.exe")
 $^g:: SendInput("^g")                                                        ; C-g
-$^w:: SendInput("^{Backspace}")                                              ; Use C-S-w
+$^w:: SendInput("^{Backspace}")                                              ; C-Backspace
+$^+w:: SendInput("^w")                                                       ; C-w
 #HotIf ; only in emacs.exe
 
 #HotIf WinActive("ahk_exe obsidian.exe")
@@ -96,7 +97,7 @@ $^+p:: SendInput("^p")                                                       ; P
 $!.:: SendInput("!{Right}")                                                  ; Browser forward history
 $!,:: SendInput("!{Left}")                                                   ; Browser back history
 
-is_first_select_action := true                                              ; Expand line selection
+is_first_select_action := true                                               ; Expand line selection
 ~Shift Up::
 {
     global is_first_select_action
