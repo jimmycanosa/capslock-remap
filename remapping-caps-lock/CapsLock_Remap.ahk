@@ -35,7 +35,7 @@ $^+!1:: MsgBox("This shortcut works only in WINWORD.EXE.")
 $^+k:: SendInput("{End}+{Home}{Delete}{End}")                                ; Delete line
 $!p:: SendInput("{End}+{Home}^x{Up}{Enter}{Up}^v")                           ; Move line up
 $!n:: SendInput("{End}+{Home}^x{End}{Enter}^v")                              ; Move line down
-#HotIf ; WINWORD.EXE
+#HotIf ; only in WINWORD.EXE
 
 #HotIf WinActive("ahk_exe EXCEL.EXE") ; #HotIf WinActive("ahk_class XLMAIN")
 $^+!1:: MsgBox("This shortcut works only in Excel.")
@@ -50,6 +50,7 @@ $^l:: SendInput("^{Home}^+{End}^c{Esc}")                                     ; C
 $^i:: SendInput("{F2}")                                                      ; Insert mode
 $^y:: SendInput("^+{Home}^v^{Enter}")                                        ; Yank
 $^+d:: SendInput("^d")                                                       ; Duplicate cell
+$+Space:: SendInput("+{Space}")                                              ; Shift + Space
 $^!p:: SendInput("!{Up}")                                                    ; Excel drop-up menu
 $^!n:: SendInput("!{Down}")                                                  ; Excel drop-down menu
 $^+!i:: SendInput("+{Up}{Esc}")                                              ; Cell selection
@@ -62,7 +63,7 @@ $^+!,:: SendInput("^+{Left}{Esc}")                                           ; C
 $^+!.:: SendInput("^+{Right}{Esc}")                                          ; Cell selection
 $^.:: SendInput("^{PgDn}")                                                   ; Switch sheet forward
 $^,:: SendInput("^{PgUp}")                                                   ; Switch sheet backward
-#HotIf ; in EXCEL.EXE only
+#HotIf ; only in EXCEL.EXE
 
 #HotIf not WinActive("ahk_exe Code.exe") and not WinActive("ahk_exe emacs.exe")
 $^+!1:: MsgBox("This shortcut works everywhere, but not in VS Code and Emacs.")
